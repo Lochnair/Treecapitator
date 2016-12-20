@@ -15,7 +15,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.nbt.NBTTagString;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import bspkrs.treecapitator.Treecapitator;
 import bspkrs.treecapitator.config.TCSettings;
@@ -64,28 +64,28 @@ public class TreeRegistry
     protected void initVanillaTreeDefs()
     {
         vanTrees = new TreeMap<String, TreeDefinition>();
-        vanTrees.put(Reference.OAK, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log, 0, 4)).addLeafID(new ModulusBlockID(Blocks.leaves, 0, 8)));
-        vanTrees.put(Reference.SPRUCE, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log, 1, 4)).addLeafID(new ModulusBlockID(Blocks.leaves, 1, 8)));
-        vanTrees.put(Reference.BIRCH, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log, 2, 4)).addLeafID(new ModulusBlockID(Blocks.leaves, 2, 8)));
-        vanTrees.put(Reference.JUNGLE, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log, 3, 4)).addLeafID(new ModulusBlockID(Blocks.leaves, 3, 8))
-                .addLeafID(new ModulusBlockID(Blocks.leaves, 0, 8)).setMaxHorLeafBreakDist(6).setRequireLeafDecayCheck(false));
-        vanTrees.put(Reference.ACACIA, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log2, 0, 4)).addLeafID(new ModulusBlockID(Blocks.leaves2, 0, 8)));
-        vanTrees.put(Reference.DARK_OAK, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log2, 1, 4)).addLeafID(new ModulusBlockID(Blocks.leaves2, 1, 8)));
-        vanTrees.put(Reference.FUTURE_TREE_1, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log2, 2, 4)).addLeafID(new ModulusBlockID(Blocks.leaves2, 2, 8)));
-        vanTrees.put(Reference.FUTURE_TREE_2, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.log2, 3, 4)).addLeafID(new ModulusBlockID(Blocks.leaves2, 3, 8)));
-        vanTrees.put(Reference.MUSH_BROWN, new TreeDefinition().addLogID(new BlockID(Blocks.brown_mushroom_block, 10)).addLogID(new BlockID(Blocks.brown_mushroom_block, 15))
-                .addLeafID(new BlockID(Blocks.brown_mushroom_block, 1)).addLeafID(new BlockID(Blocks.brown_mushroom_block, 2))
-                .addLeafID(new BlockID(Blocks.brown_mushroom_block, 3)).addLeafID(new BlockID(Blocks.brown_mushroom_block, 4))
-                .addLeafID(new BlockID(Blocks.brown_mushroom_block, 5)).addLeafID(new BlockID(Blocks.brown_mushroom_block, 6))
-                .addLeafID(new BlockID(Blocks.brown_mushroom_block, 7)).addLeafID(new BlockID(Blocks.brown_mushroom_block, 8))
-                .addLeafID(new BlockID(Blocks.brown_mushroom_block, 9)).addLeafID(new BlockID(Blocks.brown_mushroom_block, 14))
+        vanTrees.put(Reference.OAK, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG, 0, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES, 0, 8)));
+        vanTrees.put(Reference.SPRUCE, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG, 1, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES, 1, 8)));
+        vanTrees.put(Reference.BIRCH, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG, 2, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES, 2, 8)));
+        vanTrees.put(Reference.JUNGLE, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG, 3, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES, 3, 8))
+                .addLeafID(new ModulusBlockID(Blocks.LEAVES, 0, 8)).setMaxHorLeafBreakDist(6).setRequireLeafDecayCheck(false));
+        vanTrees.put(Reference.ACACIA, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG2, 0, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES2, 0, 8)));
+        vanTrees.put(Reference.DARK_OAK, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG2, 1, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES2, 1, 8)));
+        vanTrees.put(Reference.FUTURE_TREE_1, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG2, 2, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES2, 2, 8)));
+        vanTrees.put(Reference.FUTURE_TREE_2, new TreeDefinition().addLogID(new ModulusBlockID(Blocks.LOG2, 3, 4)).addLeafID(new ModulusBlockID(Blocks.LEAVES2, 3, 8)));
+        vanTrees.put(Reference.MUSH_BROWN, new TreeDefinition().addLogID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 10)).addLogID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 15))
+                .addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 1)).addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 2))
+                .addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 3)).addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 4))
+                .addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 5)).addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 6))
+                .addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 7)).addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 8))
+                .addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 9)).addLeafID(new BlockID(Blocks.BROWN_MUSHROOM_BLOCK, 14))
                 .setMaxHorLeafBreakDist(6).setRequireLeafDecayCheck(false));
-        vanTrees.put(Reference.MUSH_RED, new TreeDefinition().addLogID(new BlockID(Blocks.red_mushroom_block, 10)).addLogID(new BlockID(Blocks.red_mushroom_block, 15))
-                .addLeafID(new BlockID(Blocks.red_mushroom_block, 1)).addLeafID(new BlockID(Blocks.red_mushroom_block, 2))
-                .addLeafID(new BlockID(Blocks.red_mushroom_block, 3)).addLeafID(new BlockID(Blocks.red_mushroom_block, 4))
-                .addLeafID(new BlockID(Blocks.red_mushroom_block, 5)).addLeafID(new BlockID(Blocks.red_mushroom_block, 6))
-                .addLeafID(new BlockID(Blocks.red_mushroom_block, 7)).addLeafID(new BlockID(Blocks.red_mushroom_block, 8))
-                .addLeafID(new BlockID(Blocks.red_mushroom_block, 9)).addLeafID(new BlockID(Blocks.red_mushroom_block, 14))
+        vanTrees.put(Reference.MUSH_RED, new TreeDefinition().addLogID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 10)).addLogID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 15))
+                .addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 1)).addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 2))
+                .addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 3)).addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 4))
+                .addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 5)).addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 6))
+                .addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 7)).addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 8))
+                .addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 9)).addLeafID(new BlockID(Blocks.RED_MUSHROOM_BLOCK, 14))
                 .setMaxHorLeafBreakDist(6).setRequireLeafDecayCheck(false));
     }
 
@@ -278,7 +278,7 @@ public class TreeRegistry
 
     public static boolean canAutoDetect(World world, Block block, BlockPos pos)
     {
-        return block.isWood(world, pos) || block.canSustainLeaves(world, pos);
+        return block.isWood(world, pos) || block.canSustainLeaves(world.getBlockState(pos), world, pos); //canSustainLeaves(IBlockState state, IBlockAccess world, BlockPos pos)
     }
 
     public static synchronized TreeDefinition autoDetectTree(World world, BlockID blockID, BlockPos blockPos, boolean shouldLog)

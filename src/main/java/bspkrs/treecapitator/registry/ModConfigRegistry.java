@@ -414,10 +414,10 @@ public class ModConfigRegistry
                         .setMaxHorLeafBreakDist(7).setRequireLeafDecayCheck(false))
                 .addTreeDef("silverwood", new TreeDefinition().addLogID(new ModulusBlockID("Thaumcraft:blockMagicalLog", 1, 4)).addLeafID(new ModulusBlockID("Thaumcraft:blockMagicalLeaves", 1, 8))));
 
-        defaultModCfgs.put("TConstruct", new ThirdPartyModConfig("TConstruct")
-                .addAxe(new ItemID("TConstruct:hatchet"))
-                .addAxe(new ItemID("TConstruct:mattock"))
-                .addAxe(new ItemID("TConstruct:lumberaxe"))
+        defaultModCfgs.put("tconstruct", new ThirdPartyModConfig("tconstruct")
+                .addAxe(new ItemID("tconstruct:hatchet"))
+                .addAxe(new ItemID("tconstruct:mattock"))
+                .addAxe(new ItemID("tconstruct:lumberaxe"))
                 .setOverrideIMC(false));
 
         defaultModCfgs.put("TwilightForest", new ThirdPartyModConfig("TwilightForest")

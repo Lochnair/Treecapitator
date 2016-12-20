@@ -128,7 +128,7 @@ public class TCConfigHandler
     @SubscribeEvent
     public void onConfigChanged(OnConfigChangedEvent event)
     {
-        if (event.modID.equals(Reference.MODID))
+        if (event.getModID().equals(Reference.MODID))
         {
             config.save();
             syncConfig();

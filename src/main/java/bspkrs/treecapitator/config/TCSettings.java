@@ -4,11 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.minecraft.enchantment.Enchantment;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Configuration;
 import bspkrs.treecapitator.EnchantmentTreecapitating;
 import bspkrs.treecapitator.util.Reference;
 import bspkrs.treecapitator.util.TCLog;
+import static net.minecraft.enchantment.Enchantment.REGISTRY;
 
 public final class TCSettings
 {
@@ -134,8 +137,10 @@ public final class TCSettings
         if ((id >= 0) && (id < 256) && enableEnchantmentMode)
         {
             enchantmentID = id;
-            treecapitating = new EnchantmentTreecapitating(enchantmentID, enchantmentWeight);
-            treecapitating.setName("treecapitating");
+            treecapitating = new EnchantmentTreecapitating(Enchantment.Rarity.COMMON, EntityEquipmentSlot.MAINHAND);
+            if (Enchantment.getEnchantmentByID(enchantmentID) == null) {
+                REGISTRY.register(enchantmentID, new ResourceLocation("treecapitating"), treecapitating);
+            }
         }
     }
 

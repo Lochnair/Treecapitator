@@ -1,20 +1,20 @@
 {
   "modListVersion": 2,
   "modList": [{
-    "modid": "Treecapitator",
-    "name": "Treecapitator",
+    "modid": "TreeCapitator",
+    "name": "TreeCapitator",
     "description": "Allows you to chop down entire trees by breaking a single log.",
     "version": "${mod_version}",
     "mcversion": "${minecraft_version}",
     "url": "http://www.minecraftforum.net/topic/1009577-/",
     "updateUrl": "",
-    "authorList": [ "DaftPVF", "bspkrs" ],
+    "authorList": [ "DaftPVF", "bspkrs", "jco2641" ],
     "credits": "Original by DaftPVF; additional credit to Lunatrius, AtomicStryker, ScottKillen",
     "logoFile": "",
     "screenshots": [  ],
     "parent": "",
-    "requiredMods": [ "Forge@[${forge_version},)", "bspkrsCore@[${bscore_version},)" ],
-    "dependencies": [ "Forge@[${forge_version},)", "bspkrsCore@[${bscore_version},)" ],
+    "requiredMods": [ "bspkrsCore@[${bscore_version},)" ],
+    "dependencies": [ "bspkrsCore@[${bscore_version},)" ],
     "dependants": [  ],
     "useDependencyInformation": "true"
   }]

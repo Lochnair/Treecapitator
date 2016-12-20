@@ -6,7 +6,7 @@ import java.util.List;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.util.BlockPos;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 import bspkrs.treecapitator.config.TCSettings;
@@ -61,13 +61,13 @@ public class ToolRegistry
     protected void initVanillaItemLists()
     {
         initVanillaLists();
-        vanAxeList.add(new ItemID(Items.wooden_axe));
-        vanAxeList.add(new ItemID(Items.stone_axe));
-        vanAxeList.add(new ItemID(Items.iron_axe));
-        vanAxeList.add(new ItemID(Items.golden_axe));
-        vanAxeList.add(new ItemID(Items.diamond_axe));
+        vanAxeList.add(new ItemID(Items.WOODEN_AXE));
+        vanAxeList.add(new ItemID(Items.STONE_AXE));
+        vanAxeList.add(new ItemID(Items.IRON_AXE));
+        vanAxeList.add(new ItemID(Items.GOLDEN_AXE));
+        vanAxeList.add(new ItemID(Items.DIAMOND_AXE));
 
-        vanShearsList.add(new ItemID(Items.shears));
+        vanShearsList.add(new ItemID(Items.SHEARS));
     }
 
     public static synchronized void autoDetectAxe(World world, BlockPos pos, ItemStack item)

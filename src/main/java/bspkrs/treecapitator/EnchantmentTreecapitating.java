@@ -2,6 +2,8 @@ package bspkrs.treecapitator;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
+import net.minecraft.init.Enchantments;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import bspkrs.treecapitator.config.TCSettings;
@@ -9,9 +11,10 @@ import bspkrs.treecapitator.registry.ToolRegistry;
 
 public class EnchantmentTreecapitating extends Enchantment
 {
-    public EnchantmentTreecapitating(int par1, int par2)
+    public EnchantmentTreecapitating(Enchantment.Rarity rarityIn, EntityEquipmentSlot... slots)
     {
-        super(par1, new ResourceLocation("treecapitating"), par2, EnumEnchantmentType.DIGGER);
+        super(rarityIn, EnumEnchantmentType.DIGGER, slots);
+        this.setName("treecapitating");
     }
 
     @Override
@@ -49,7 +52,7 @@ public class EnchantmentTreecapitating extends Enchantment
     @Override
     public boolean canApplyTogether(Enchantment enchantment)
     {
-        return TCSettings.enableEnchantmentMode && super.canApplyTogether(enchantment) && (enchantment.effectId != fortune.effectId);
+        return TCSettings.enableEnchantmentMode && super.canApplyTogether(enchantment) && (enchantment != Enchantments.FORTUNE);
     }
 
 }

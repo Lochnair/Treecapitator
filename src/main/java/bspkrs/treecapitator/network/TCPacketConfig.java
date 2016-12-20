@@ -34,9 +34,9 @@ public class TCPacketConfig implements BSPacket
     {
         try
         {
-            settings = buffer.readNBTTagCompoundFromBuffer();
-            treeRegistry = buffer.readNBTTagCompoundFromBuffer();
-            toolRegistry = buffer.readNBTTagCompoundFromBuffer();
+            settings = buffer.readCompoundTag();
+            treeRegistry = buffer.readCompoundTag();
+            toolRegistry = buffer.readCompoundTag();
         }
         catch (Throwable e)
         {
@@ -49,9 +49,9 @@ public class TCPacketConfig implements BSPacket
     {
         try
         {
-            buffer.writeNBTTagCompoundToBuffer(settings);
-            buffer.writeNBTTagCompoundToBuffer(treeRegistry);
-            buffer.writeNBTTagCompoundToBuffer(toolRegistry);
+            buffer.writeCompoundTag(settings);
+            buffer.writeCompoundTag(treeRegistry);
+            buffer.writeCompoundTag(toolRegistry);
         }
         catch (Throwable e)
         {

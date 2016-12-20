@@ -39,7 +39,7 @@ public class ForgeEventHandler
     {
         if (TreecapitatorMod.proxy.isEnabled() && !TCSettings.sneakAction.equalsIgnoreCase("none"))
         {
-            if (!event.getEntityPlayer().worldObj.isAirBlock(event.getPos()))
+            if (!event.getEntityPlayer().world.isAirBlock(event.getPos()))
                 playerSneakingMap.put(event.getEntityPlayer().getGameProfile().getName(), event.getEntityPlayer().isSneaking());
         }
     }
@@ -51,12 +51,12 @@ public class ForgeEventHandler
         BlockPos pos = event.getPos();
 
         if (TreecapitatorMod.proxy.isEnabled() && (TreeRegistry.instance().isRegistered(blockID)
-                || (TCSettings.allowAutoTreeDetection && TreeRegistry.canAutoDetect(event.getEntityPlayer().worldObj, event.getState().getBlock(), pos)))
+                || (TCSettings.allowAutoTreeDetection && TreeRegistry.canAutoDetect(event.getEntityPlayer().world, event.getState().getBlock(), pos)))
                 && Treecapitator.isBreakingPossible(event.getEntityPlayer(), event.getPos(), false))
         {
             TreeDefinition treeDef;
             if (TCSettings.allowAutoTreeDetection)
-                treeDef = TreeRegistry.autoDetectTree(event.getEntityPlayer().worldObj, blockID, pos, TCSettings.allowDebugLogging);
+                treeDef = TreeRegistry.autoDetectTree(event.getEntityPlayer().world, blockID, pos, TCSettings.allowDebugLogging);
             else
                 treeDef = TreeRegistry.instance().get(blockID);
 
@@ -76,7 +76,7 @@ public class ForgeEventHandler
                         {
                             if (Treecapitator.isBreakingEnabled(event.getEntityPlayer()))
                             {
-                                int height = Treecapitator.getTreeHeight(treeDef, event.getEntityPlayer().worldObj, pos, event.getEntityPlayer());
+                                int height = Treecapitator.getTreeHeight(treeDef, event.getEntityPlayer().world, pos, event.getEntityPlayer());
                                 if (height > 1)
                                     event.setNewSpeed(event.getNewSpeed() / (height * TCSettings.treeHeightModifier));
                             }
